@@ -17,7 +17,21 @@
 		7A08072A22CCE81D00EFD474 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08072922CCE81D00EFD474 /* APIService.swift */; };
 		7A08072C22CCEB7A00EFD474 /* QuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08072B22CCEB7A00EFD474 /* QuotesTableViewController.swift */; };
 		7A08072F22CCEBDA00EFD474 /* LauchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08072E22CCEBDA00EFD474 /* LauchViewController.swift */; };
+		7A40415A22CCF063001EF4EF /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A40415922CCF063001EF4EF /* Quote.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A40422F22CCFC84001EF4EF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7A08070822CCE2EA00EFD474 /* CNquote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CNquote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +46,7 @@
 		7A08072922CCE81D00EFD474 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		7A08072B22CCEB7A00EFD474 /* QuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTableViewController.swift; sourceTree = "<group>"; };
 		7A08072E22CCEBDA00EFD474 /* LauchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchViewController.swift; sourceTree = "<group>"; };
+		7A40415922CCF063001EF4EF /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				7A08072B22CCEB7A00EFD474 /* QuotesTableViewController.swift */,
+				7A40415922CCF063001EF4EF /* Quote.swift */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -121,6 +137,7 @@
 				7A08070422CCE2EA00EFD474 /* Sources */,
 				7A08070522CCE2EA00EFD474 /* Frameworks */,
 				7A08070622CCE2EA00EFD474 /* Resources */,
+				7A40422F22CCFC84001EF4EF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,6 +203,7 @@
 				7A08070E22CCE2EA00EFD474 /* ViewController.swift in Sources */,
 				7A08072C22CCEB7A00EFD474 /* QuotesTableViewController.swift in Sources */,
 				7A08072A22CCE81D00EFD474 /* APIService.swift in Sources */,
+				7A40415A22CCF063001EF4EF /* Quote.swift in Sources */,
 				7A08072F22CCEBDA00EFD474 /* LauchViewController.swift in Sources */,
 				7A08072322CCE45E00EFD474 /* ParametersViewController.swift in Sources */,
 				7A08070C22CCE2EA00EFD474 /* AppDelegate.swift in Sources */,
@@ -333,10 +351,12 @@
 		7A08071E22CCE2ED00EFD474 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59Z5GTZC97;
 				INFOPLIST_FILE = CNquote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -351,10 +371,12 @@
 		7A08071F22CCE2ED00EFD474 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 59Z5GTZC97;
 				INFOPLIST_FILE = CNquote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
