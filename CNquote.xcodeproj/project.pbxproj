@@ -13,6 +13,10 @@
 		7A08071422CCE2EA00EFD474 /* CNquote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A08071222CCE2EA00EFD474 /* CNquote.xcdatamodeld */; };
 		7A08071622CCE2ED00EFD474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A08071522CCE2ED00EFD474 /* Assets.xcassets */; };
 		7A08071922CCE2ED00EFD474 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A08071722CCE2ED00EFD474 /* LaunchScreen.storyboard */; };
+		7A08072322CCE45E00EFD474 /* ParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08072222CCE45E00EFD474 /* ParametersViewController.swift */; };
+		7A08072A22CCE81D00EFD474 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08072922CCE81D00EFD474 /* APIService.swift */; };
+		7A08072C22CCEB7A00EFD474 /* QuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08072B22CCEB7A00EFD474 /* QuotesTableViewController.swift */; };
+		7A08072F22CCEBDA00EFD474 /* LauchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08072E22CCEBDA00EFD474 /* LauchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		7A08071522CCE2ED00EFD474 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A08071822CCE2ED00EFD474 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A08071A22CCE2ED00EFD474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A08072222CCE45E00EFD474 /* ParametersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersViewController.swift; sourceTree = "<group>"; };
+		7A08072922CCE81D00EFD474 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		7A08072B22CCEB7A00EFD474 /* QuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTableViewController.swift; sourceTree = "<group>"; };
+		7A08072E22CCEBDA00EFD474 /* LauchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,10 @@
 		7A08070A22CCE2EA00EFD474 /* CNquote */ = {
 			isa = PBXGroup;
 			children = (
+				7A08072D22CCEBBB00EFD474 /* LaunchSreen */,
+				7A08072822CCE7F300EFD474 /* Service */,
+				7A08072122CCE40B00EFD474 /* Quotes */,
+				7A08072022CCE3FA00EFD474 /* Parameters */,
 				7A08070B22CCE2EA00EFD474 /* AppDelegate.swift */,
 				7A08070D22CCE2EA00EFD474 /* ViewController.swift */,
 				7A08070F22CCE2EA00EFD474 /* Main.storyboard */,
@@ -65,6 +77,38 @@
 				7A08071222CCE2EA00EFD474 /* CNquote.xcdatamodeld */,
 			);
 			path = CNquote;
+			sourceTree = "<group>";
+		};
+		7A08072022CCE3FA00EFD474 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				7A08072222CCE45E00EFD474 /* ParametersViewController.swift */,
+			);
+			path = Parameters;
+			sourceTree = "<group>";
+		};
+		7A08072122CCE40B00EFD474 /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				7A08072B22CCEB7A00EFD474 /* QuotesTableViewController.swift */,
+			);
+			path = Quotes;
+			sourceTree = "<group>";
+		};
+		7A08072822CCE7F300EFD474 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7A08072922CCE81D00EFD474 /* APIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7A08072D22CCEBBB00EFD474 /* LaunchSreen */ = {
+			isa = PBXGroup;
+			children = (
+				7A08072E22CCEBDA00EFD474 /* LauchViewController.swift */,
+			);
+			path = LaunchSreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +184,10 @@
 			files = (
 				7A08071422CCE2EA00EFD474 /* CNquote.xcdatamodeld in Sources */,
 				7A08070E22CCE2EA00EFD474 /* ViewController.swift in Sources */,
+				7A08072C22CCEB7A00EFD474 /* QuotesTableViewController.swift in Sources */,
+				7A08072A22CCE81D00EFD474 /* APIService.swift in Sources */,
+				7A08072F22CCEBDA00EFD474 /* LauchViewController.swift in Sources */,
+				7A08072322CCE45E00EFD474 /* ParametersViewController.swift in Sources */,
 				7A08070C22CCE2EA00EFD474 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
