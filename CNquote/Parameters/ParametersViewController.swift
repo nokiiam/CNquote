@@ -15,7 +15,6 @@ class ParametersViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -27,4 +26,11 @@ class ParametersViewController: UIViewController {
     }
     */
 
+    @IBOutlet weak var ParameterInput: UITextField!
+    
+    @IBAction func SaveButton(_ sender: Any) {
+        if (ParameterInput.text.hashValue != 0 && ParameterInput.text != "") {
+            Parameters.newName = ParameterInput.text!
+        }
+    }
 }
