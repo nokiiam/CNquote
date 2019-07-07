@@ -11,5 +11,6 @@ import Cosmos
 
 class QuoteTableViewCell: UITableViewCell {
     @IBOutlet weak var quoteLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var starsCosmosView: CosmosView!
 }

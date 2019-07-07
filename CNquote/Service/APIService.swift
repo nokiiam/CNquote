@@ -13,8 +13,12 @@ class ApiService {
     let baseurl = "https://chucknorrisfacts.fr/api/get?data=type:txt"
     var alreadyLoadedBestQuote : [Quote] = []
     var alreadyLoadedNewQuote : [Quote] = []
+    var alreadyLoadedRandomQuote : [Quote] = []
     
-    var allQuoteLoaded = false
+    var allNewQuoteLoaded = false
+    var allBestQuoteLoaded = false
+    var allRandomQuoteLoaded = false
+    
     var APIsephamore = DispatchSemaphore(value: 1)
     
     func loadQuote(_ url: URL) -> ([Quote], Int) {
@@ -37,8 +41,7 @@ class ApiService {
                     semaphore.signal()
                     return
             }
-            
-            result = json.map{ Quote(quote: $0["fact"]!.htmlUnescape(), date: $0["date"]!, score: $0["points"]!, vote: $0["vote"]!)}
+            result = json.map{ Quote(quote: $0["fact"]!.htmlUnescape().replacingOccurrences(of: "<br />", with: ""), date: $0["date"]!, score: $0["points"]!, vote: $0["vote"]!, id: $0["id"]!)}
             semaphore.signal()
         }
         
@@ -48,14 +51,14 @@ class ApiService {
     }
     
     func loadMoreNewQuote() {
-        if (allQuoteLoaded) {return;}
+        if (allNewQuoteLoaded) {return}
         APIsephamore.wait()
         let PageToLoad = alreadyLoadedNewQuote.count / 99 + 1
         
         let url = URL(string: "\(baseurl);nb:99;page:\(PageToLoad)")!
         let (newquotes, err) = loadQuote(url)
         if (newquotes.count == 0 && err == 0) {
-            allQuoteLoaded = true
+            allNewQuoteLoaded = true
             self.alreadyLoadedBestQuote = self.alreadyLoadedNewQuote.sorted {
                 return $0.score > $1.score
             }
@@ -64,14 +67,14 @@ class ApiService {
     }
     
     func loadMoreBestQuote() {
-        if (allQuoteLoaded) {return;}
+        if (allBestQuoteLoaded) {return}
         APIsephamore.wait()
         let PageToLoad = alreadyLoadedNewQuote.count / 99 + 1
         
         let url = URL(string: "\(baseurl);nb:99;page:\(PageToLoad);tri:top")!
         let (newquotes, err) = loadQuote(url)
         if (newquotes.count == 0 && err == 0) {
-            allQuoteLoaded = true
+            allBestQuoteLoaded = true
             self.alreadyLoadedNewQuote = self.alreadyLoadedBestQuote.sorted {
                 return $0.date > $1.date
             }
@@ -79,8 +82,23 @@ class ApiService {
         APIsephamore.signal()
     }
     
+    func loadMoreRandomQuote() {
+        if (allRandomQuoteLoaded) {return}
+        APIsephamore.wait()
+        let PageToLoad = alreadyLoadedRandomQuote.count / 99 + 1
+        
+        let url = URL(string: "\(baseurl);nb:99;page:\(PageToLoad);tri:alea")!
+        let (newquotes, err) = loadQuote(url)
+        if (newquotes.count == 0 && err == 0) {
+            allRandomQuoteLoaded = true
+        } else {self.alreadyLoadedRandomQuote += newquotes}
+        APIsephamore.signal()
+    }
+    
+    
+    
     func getBestQuote(index : Int) -> Quote? {
-        while !allQuoteLoaded && alreadyLoadedBestQuote.count <= index {
+        while !allBestQuoteLoaded && alreadyLoadedBestQuote.count <= index {
             loadMoreBestQuote()
         }
         if index < alreadyLoadedBestQuote.count {return alreadyLoadedBestQuote[index]}
@@ -88,7 +106,7 @@ class ApiService {
     }
     
     func getNewQuote(index : Int) -> Quote? {
-        while !allQuoteLoaded && alreadyLoadedNewQuote.count <= index {
+        while !allNewQuoteLoaded && alreadyLoadedNewQuote.count <= index {
             loadMoreNewQuote()
         }
         if index < alreadyLoadedNewQuote.count {return alreadyLoadedNewQuote[index]}
