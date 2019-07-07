@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,8 @@
 		7A08072C22CCEB7A00EFD474 /* QuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08072B22CCEB7A00EFD474 /* QuotesTableViewController.swift */; };
 		7A08072F22CCEBDA00EFD474 /* LauchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A08072E22CCEBDA00EFD474 /* LauchViewController.swift */; };
 		7A40415A22CCF063001EF4EF /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A40415922CCF063001EF4EF /* Quote.swift */; };
+		7A6478CE22D2228800585CC1 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6478CD22D2228800585CC1 /* QuoteTableViewCell.swift */; };
+		A868047B36D6403615562898 /* Pods_CNquote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3734B70546257F841DB4667D /* Pods_CNquote.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,7 +37,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3734B70546257F841DB4667D /* Pods_CNquote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CNquote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBDEF4C22CCF0C000E4333E /* ParametersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersModel.swift; sourceTree = "<group>"; };
+		6CF41F666674E414F538590D /* Pods-CNquote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNquote.release.xcconfig"; path = "Target Support Files/Pods-CNquote/Pods-CNquote.release.xcconfig"; sourceTree = "<group>"; };
 		7A08070822CCE2EA00EFD474 /* CNquote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CNquote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A08070B22CCE2EA00EFD474 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A08070D22CCE2EA00EFD474 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 		7A08072B22CCEB7A00EFD474 /* QuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTableViewController.swift; sourceTree = "<group>"; };
 		7A08072E22CCEBDA00EFD474 /* LauchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauchViewController.swift; sourceTree = "<group>"; };
 		7A40415922CCF063001EF4EF /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		7A6478CD22D2228800585CC1 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
+		BCC05DD4652D9B3C37F5D255 /* Pods-CNquote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNquote.debug.xcconfig"; path = "Target Support Files/Pods-CNquote/Pods-CNquote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,17 +62,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A868047B36D6403615562898 /* Pods_CNquote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		660826833D8C180E028D8690 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3734B70546257F841DB4667D /* Pods_CNquote.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7A0806FF22CCE2EA00EFD474 = {
 			isa = PBXGroup;
 			children = (
 				7A08070A22CCE2EA00EFD474 /* CNquote */,
 				7A08070922CCE2EA00EFD474 /* Products */,
+				8259E26A0BE73FB05190A19F /* Pods */,
+				660826833D8C180E028D8690 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +127,7 @@
 			children = (
 				7A08072B22CCEB7A00EFD474 /* QuotesTableViewController.swift */,
 				7A40415922CCF063001EF4EF /* Quote.swift */,
+				7A6478CD22D2228800585CC1 /* QuoteTableViewCell.swift */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -130,6 +148,15 @@
 			path = LaunchSreen;
 			sourceTree = "<group>";
 		};
+		8259E26A0BE73FB05190A19F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BCC05DD4652D9B3C37F5D255 /* Pods-CNquote.debug.xcconfig */,
+				6CF41F666674E414F538590D /* Pods-CNquote.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,10 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A08071D22CCE2ED00EFD474 /* Build configuration list for PBXNativeTarget "CNquote" */;
 			buildPhases = (
+				7F61C6703644AD20A418BD0B /* [CP] Check Pods Manifest.lock */,
 				7A08070422CCE2EA00EFD474 /* Sources */,
 				7A08070522CCE2EA00EFD474 /* Frameworks */,
 				7A08070622CCE2EA00EFD474 /* Resources */,
 				7A40422F22CCFC84001EF4EF /* Embed Frameworks */,
+				E3AB7FD7736C42EBD91B1AE3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -197,6 +226,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7F61C6703644AD20A418BD0B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CNquote-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3AB7FD7736C42EBD91B1AE3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CNquote/Pods-CNquote-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CNquote/Pods-CNquote-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CNquote/Pods-CNquote-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A08070422CCE2EA00EFD474 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -206,6 +277,7 @@
 				7A08070E22CCE2EA00EFD474 /* ViewController.swift in Sources */,
 				7A08072C22CCEB7A00EFD474 /* QuotesTableViewController.swift in Sources */,
 				7A08072A22CCE81D00EFD474 /* APIService.swift in Sources */,
+				7A6478CE22D2228800585CC1 /* QuoteTableViewCell.swift in Sources */,
 				7A40415A22CCF063001EF4EF /* Quote.swift in Sources */,
 				7A08072F22CCEBDA00EFD474 /* LauchViewController.swift in Sources */,
 				4CBDEF4D22CCF0C000E4333E /* ParametersModel.swift in Sources */,
@@ -354,11 +426,17 @@
 		};
 		7A08071E22CCE2ED00EFD474 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCC05DD4652D9B3C37F5D255 /* Pods-CNquote.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 59Z5GTZC97;
+				DEVELOPMENT_TEAM = HX353ST5ZZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HTMLEntities\"",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = CNquote/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -374,11 +452,17 @@
 		};
 		7A08071F22CCE2ED00EFD474 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CF41F666674E414F538590D /* Pods-CNquote.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 59Z5GTZC97;
+				DEVELOPMENT_TEAM = HX353ST5ZZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HTMLEntities\"",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = CNquote/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

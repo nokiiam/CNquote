@@ -12,25 +12,15 @@ class ParametersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        ParameterInput.text = Parameters.newName
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBOutlet weak var ParameterInput: UITextField!
     
     @IBAction func SaveButton(_ sender: Any) {
-        if (ParameterInput.text.hashValue != 0 && ParameterInput.text != "") {
+        if (ParameterInput.text.hashValue != 0) {
             Parameters.newName = ParameterInput.text!
+            navigationController?.popViewController(animated: true)
         }
     }
 }

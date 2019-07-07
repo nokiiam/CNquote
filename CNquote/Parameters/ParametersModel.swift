@@ -9,5 +9,5 @@
 import Foundation
 
 class Parameters {
-    static var newName: String = "Chuck Norris"
+    static var newName: String = ""
 }

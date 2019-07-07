@@ -9,13 +9,25 @@
 import UIKit
 
 class LauchViewController: UIViewController {
-
+    let api = ApiService()
+    @IBOutlet weak var quoteLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let q : Quote = api.getRandomQuote()
+        
+        quoteLabel.text = "\n" + q.quoteString + "\n"
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            let newView = self.storyboard?.instantiateViewController(withIdentifier: "QuotesView") as! QuotesTableViewController
+            self.navigationController?.pushViewController(newView, animated: true)
+        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
 
     /*
     // MARK: - Navigation
