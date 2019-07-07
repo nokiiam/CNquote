@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HTMLEntities
 
 class ApiService {
     let baseurl = "https://chucknorrisfacts.fr/api/get?data=type:txt"
@@ -36,7 +37,8 @@ class ApiService {
                     semaphore.signal()
                     return
             }
-            result = json.map{ Quote(quote: $0["fact"]!, date: $0["date"]!, score: $0["points"]!, vote: $0["vote"]!)}
+            
+            result = json.map{ Quote(quote: $0["fact"]!.htmlUnescape(), date: $0["date"]!, score: $0["points"]!, vote: $0["vote"]!)}
             semaphore.signal()
         }
         
@@ -48,7 +50,7 @@ class ApiService {
     func loadMoreNewQuote() {
         if (allQuoteLoaded) {return;}
         APIsephamore.wait()
-        let PageToLoad = alreadyLoadedNewQuote.count / 99
+        let PageToLoad = alreadyLoadedNewQuote.count / 99 + 1
         
         let url = URL(string: "\(baseurl);nb:99;page:\(PageToLoad)")!
         let (newquotes, err) = loadQuote(url)
@@ -64,7 +66,7 @@ class ApiService {
     func loadMoreBestQuote() {
         if (allQuoteLoaded) {return;}
         APIsephamore.wait()
-        let PageToLoad = alreadyLoadedNewQuote.count / 99
+        let PageToLoad = alreadyLoadedNewQuote.count / 99 + 1
         
         let url = URL(string: "\(baseurl);nb:99;page:\(PageToLoad);tri:top")!
         let (newquotes, err) = loadQuote(url)

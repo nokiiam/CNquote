@@ -9,10 +9,16 @@
 import UIKit
 
 class QuotesTableViewController: UITableViewController {
-
+    let api = ApiService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
+        
+        api.loadMoreNewQuote()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,24 +29,22 @@ class QuotesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return api.alreadyLoadedNewQuote.count;
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell", for: indexPath) as! QuoteTableViewCell
 
-        // Configure the cell...
-
+        let quote = api.alreadyLoadedNewQuote[indexPath.row]
+        
+        cell.quoteLabel.text = quote.quoteString
+        cell.starsCosmosView.rating = Double(quote.score/quote.vote)
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

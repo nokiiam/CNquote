@@ -1,0 +1,28 @@
+PODS:
+  - Cosmos (19.0.3)
+  - HTMLEntities (3.0.13)
+
+DEPENDENCIES:
+  - Cosmos (~> 19.0)
+  - HTMLEntities (from `https://github.com/IBM-Swift/swift-html-entities.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Cosmos
+
+EXTERNAL SOURCES:
+  HTMLEntities:
+    :git: https://github.com/IBM-Swift/swift-html-entities.git
+
+CHECKOUT OPTIONS:
+  HTMLEntities:
+    :commit: 6412a5d0ac617cdd74d09deb4b4e548c1404d49c
+    :git: https://github.com/IBM-Swift/swift-html-entities.git
+
+SPEC CHECKSUMS:
+  Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
+  HTMLEntities: 83738511518b3f29cf9644d0877505b8d3d1a849
+
+PODFILE CHECKSUM: d7ea2c5ece89d9cf85f3194f8478c506ff4118cd
+
+COCOAPODS: 1.7.3

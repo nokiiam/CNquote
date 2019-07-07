@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pour plus d'information sur l'API utilisée rendez vous sur le lien suivant : https://chucknorrisfacts.fr/api" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfD-Y2-Rnu">
-                                <rect key="frame" x="13" y="581" width="350" height="66"/>
+                                <rect key="frame" x="12.5" y="581" width="350" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="1sj-12-5KE"/>
                                     <constraint firstAttribute="height" constant="66" id="e3v-Tz-5Hx"/>
@@ -83,13 +83,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AHA-gW-jma">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuoteCell" rowHeight="139" id="AHA-gW-jma" customClass="QuoteTableViewCell" customModule="CNquote" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="139"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AHA-gW-jma" id="v5w-t8-bol">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="138.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Quote" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mx4-iy-fIh">
+                                            <rect key="frame" x="24" y="11" width="327" height="89"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DyF-hc-KtX" customClass="CosmosView" customModule="Cosmos">
+                                            <rect key="frame" x="231" y="108" width="120" height="20"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DyF-hc-KtX" secondAttribute="trailing" constant="8" id="dFN-k6-DyE"/>
+                                        <constraint firstItem="Mx4-iy-fIh" firstAttribute="leading" secondItem="v5w-t8-bol" secondAttribute="leadingMargin" constant="8" id="otE-th-LD5"/>
+                                        <constraint firstItem="Mx4-iy-fIh" firstAttribute="top" secondItem="v5w-t8-bol" secondAttribute="topMargin" id="pUY-s7-UPN"/>
+                                        <constraint firstItem="DyF-hc-KtX" firstAttribute="top" secondItem="Mx4-iy-fIh" secondAttribute="bottom" constant="8" id="xA9-jD-Blc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Mx4-iy-fIh" secondAttribute="trailing" constant="8" id="yt5-HX-VXc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Mx4-iy-fIh" secondAttribute="bottom" constant="28" id="zZE-QR-GrB"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="quoteLabel" destination="Mx4-iy-fIh" id="pan-Ay-bVI"/>
+                                    <outlet property="starsCosmosView" destination="DyF-hc-KtX" id="eR1-wr-EXo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -104,6 +136,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Q7b-a3-gv5" id="TrU-nQ-bZP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7b9-87-Jjq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
