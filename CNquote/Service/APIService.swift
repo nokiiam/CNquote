@@ -17,7 +17,8 @@ class ApiService {
     
     var allNewQuoteLoaded = false
     var allBestQuoteLoaded = false
-    var allRandomQuoteLoaded = false
+    
+    var loading = false
     
     var APIsephamore = DispatchSemaphore(value: 1)
     
@@ -52,6 +53,7 @@ class ApiService {
     
     func loadMoreNewQuote() {
         if (allNewQuoteLoaded) {return}
+        loading = true
         APIsephamore.wait()
         let PageToLoad = alreadyLoadedNewQuote.count / 99 + 1
         
@@ -64,10 +66,12 @@ class ApiService {
             }
         } else {self.alreadyLoadedNewQuote += newquotes}
         APIsephamore.signal()
+        loading = false
     }
     
     func loadMoreBestQuote() {
         if (allBestQuoteLoaded) {return}
+        loading = true
         APIsephamore.wait()
         let PageToLoad = alreadyLoadedNewQuote.count / 99 + 1
         
@@ -80,19 +84,20 @@ class ApiService {
             }
         } else {self.alreadyLoadedBestQuote += newquotes}
         APIsephamore.signal()
+        loading = false
     }
     
     func loadMoreRandomQuote() {
-        if (allRandomQuoteLoaded) {return}
+        loading = true
         APIsephamore.wait()
-        let PageToLoad = alreadyLoadedRandomQuote.count / 99 + 1
         
-        let url = URL(string: "\(baseurl);nb:99;page:\(PageToLoad);tri:alea")!
+        let url = URL(string: "\(baseurl);nb:99;page:1;tri:alea")!
         let (newquotes, err) = loadQuote(url)
-        if (newquotes.count == 0 && err == 0) {
-            allRandomQuoteLoaded = true
-        } else {self.alreadyLoadedRandomQuote += newquotes}
+        if err == 0 {
+            self.alreadyLoadedRandomQuote += newquotes
+        }
         APIsephamore.signal()
+        loading = false
     }
     
     
@@ -114,7 +119,7 @@ class ApiService {
     }
     
     func getRandomQuote() -> Quote {
-        if alreadyLoadedBestQuote.count == 0 {loadMoreBestQuote()}
+        while alreadyLoadedBestQuote.count == 0 {loadMoreBestQuote()}
         let index = Int.random(in: 0..<alreadyLoadedBestQuote.count)
         return alreadyLoadedBestQuote[index]
     }

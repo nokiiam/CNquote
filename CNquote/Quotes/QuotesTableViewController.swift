@@ -20,14 +20,18 @@ class QuotesTableViewController: UITableViewController {
         tableView.estimatedSectionHeaderHeight = 0
         tableView.estimatedSectionFooterHeight = 0
         
-        switch quotesType {
+        
+        DispatchQueue.global().async(execute: {
+            switch self.quotesType {
             case "recent":
-                api.loadMoreNewQuote()
+                self.api.loadMoreNewQuote()
             case "best":
-                api.loadMoreBestQuote()
+                self.api.loadMoreBestQuote()
             default:
-                api.loadMoreRandomQuote()
-        }
+                self.api.loadMoreRandomQuote()
+            }
+            self.tableView.reloadData()
+        })
         
     }
     
@@ -87,17 +91,27 @@ class QuotesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let count : Int = api.alreadyLoadedNewQuote.count
-        if indexPath.row >= count - 5 {
-            switch quotesType {
-                case "recent":
-                    api.loadMoreNewQuote()
-                case "best":
-                    api.loadMoreBestQuote()
-                default:
-                    api.loadMoreRandomQuote()
-            }
-            tableView.reloadData()
+        var count : Int
+        switch quotesType {
+            case "recent":
+                count = api.alreadyLoadedNewQuote.count
+            case "best":
+                count = api.alreadyLoadedBestQuote.count
+            default:
+                count = api.alreadyLoadedRandomQuote.count
+        }
+        if indexPath.row >= count - 10  && !api.loading {
+            DispatchQueue.global().async(execute: {
+                switch self.quotesType {
+                    case "recent":
+                        self.api.loadMoreNewQuote()
+                    case "best":
+                        self.api.loadMoreBestQuote()
+                    default:
+                        self.api.loadMoreRandomQuote()
+                }
+                self.tableView.reloadData()
+            })
         }
     }
     
@@ -106,7 +120,10 @@ class QuotesTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Nouvelles", style: .default, handler: { (_) in
             self.quotesType = "recent"
             if self.api.alreadyLoadedNewQuote.count == 0 {
-                self.api.loadMoreNewQuote()
+                DispatchQueue.global().async(execute: {
+                    self.api.loadMoreNewQuote()
+                    self.tableView.reloadData()
+                })
             }
             self.navigationController?.navigationBar.topItem?.title = "Nouvelles"
             self.tableView.reloadData()
@@ -115,7 +132,10 @@ class QuotesTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Meilleures", style: .default, handler: { (_) in
             self.quotesType = "best"
             if self.api.alreadyLoadedBestQuote.count == 0 {
-                self.api.loadMoreBestQuote()
+                DispatchQueue.global().async(execute: {
+                    self.api.loadMoreBestQuote()
+                    self.tableView.reloadData()
+                })
             }
             self.navigationController?.navigationBar.topItem?.title = "Meilleures"
             self.tableView.reloadData()
@@ -124,7 +144,10 @@ class QuotesTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Aléatoire", style: .default, handler: { (_) in
             self.quotesType = "random"
             if self.api.alreadyLoadedRandomQuote.count == 0 {
-                self.api.loadMoreRandomQuote()
+                DispatchQueue.global().async(execute: {
+                    self.api.loadMoreRandomQuote()
+                    self.tableView.reloadData()
+                })
             }
             self.navigationController?.navigationBar.topItem?.title = "Aléatoires"
             self.tableView.reloadData()

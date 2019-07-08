@@ -76,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="1685.5999999999999" y="-20.239880059970016"/>
         </scene>
-        <!--Test-->
+        <!--Quotes-->
         <scene sceneID="NZm-2m-DWZ">
             <objects>
                 <tableViewController storyboardIdentifier="QuotesView" id="1Vy-DG-6Ds" customClass="QuotesTableViewController" customModule="CNquote" customModuleProvider="target" sceneMemberID="viewController">
@@ -140,7 +140,7 @@
                             <outlet property="delegate" destination="1Vy-DG-6Ds" id="2NE-Gy-uhU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Test" id="IOx-kr-zbi">
+                    <navigationItem key="navigationItem" title="Quotes" id="IOx-kr-zbi">
                         <barButtonItem key="leftBarButtonItem" title="Trier" id="4Mb-cD-PFM">
                             <connections>
                                 <action selector="filterButtonPressed:" destination="1Vy-DG-6Ds" id="ZFE-oc-AUB"/>
