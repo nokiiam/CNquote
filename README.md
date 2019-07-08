@@ -8,5 +8,5 @@ You can also sort the quotes with different criteria.
 #### Need
 `pod`
 
-#### launch the project ####
+#### install dependencies project ####
 `pod install`
